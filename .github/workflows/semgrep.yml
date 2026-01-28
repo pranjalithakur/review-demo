@@ -1,13 +1,11 @@
 on:
   workflow_dispatch: {}
   push:
-    branches:
-    - main
-    - vulnerable-app
+    branches: [ "**" ]
     paths:
     - .github/workflows/semgrep.yml
   pull_request:
-    branches: [ "main", "vulnerable-app" ]
+    branches: [ "**" ]
   schedule:
   - cron: 29 19 * * *
 name: Semgrep
