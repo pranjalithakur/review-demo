@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=US-ASCII"
 	pageEncoding="US-ASCII"%>
-<%@ page import="com.reviewdemo.reviewdemo.model.*"%>
+<%@ page import="com.veracode.verademo.model.*"%>
 <%@ page import="java.util.*"%>
 
 <!DOCTYPE html>

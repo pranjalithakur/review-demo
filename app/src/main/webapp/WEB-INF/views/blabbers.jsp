@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=US-ASCII"
 	pageEncoding="US-ASCII"%>
-<%@ page import="com.reviewdemo.reviewdemo.model.Blabber"%>
+<%@ page import="com.veracode.verademo.model.Blabber"%>
 <%@ page import="java.util.*"%>
 <%@ page import="org.springframework.web.util.HtmlUtils" %>
 

@@ -1,4 +1,4 @@
-package com.reviewdemo.reviewdemo.commands;
+package com.veracode.verademo.commands;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,7 +22,7 @@ public class RemoveAccountCommand implements BlabberCommand {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see com.reviewdemo.reviewdemo.commands.Command#execute()
+	 * @see com.veracode.verademo.commands.Command#execute()
 	 */
 	@Override
 	public void execute(String blabberUsername) {

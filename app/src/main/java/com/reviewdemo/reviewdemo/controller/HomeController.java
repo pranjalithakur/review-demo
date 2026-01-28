@@ -1,9 +1,9 @@
-package com.reviewdemo.reviewdemo.controller;
+package com.veracode.verademo.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.reviewdemo.reviewdemo.utils.Utils;
+import com.veracode.verademo.utils.Utils;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

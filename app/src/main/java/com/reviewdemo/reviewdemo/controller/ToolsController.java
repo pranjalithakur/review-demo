@@ -1,4 +1,4 @@
-package com.reviewdemo.reviewdemo.controller;
+package com.veracode.verademo.controller;
 
 import java.io.BufferedReader;
 import java.io.IOException;

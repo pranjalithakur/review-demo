@@ -1,4 +1,4 @@
-package com.reviewdemo.reviewdemo.controller;
+package com.veracode.verademo.controller;
 
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
@@ -12,12 +12,12 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.reviewdemo.reviewdemo.commands.BlabberCommand;
-import com.reviewdemo.reviewdemo.model.Blab;
-import com.reviewdemo.reviewdemo.model.Blabber;
-import com.reviewdemo.reviewdemo.model.Comment;
-import com.reviewdemo.reviewdemo.utils.Constants;
-import com.reviewdemo.reviewdemo.utils.Utils;
+import com.veracode.verademo.commands.BlabberCommand;
+import com.veracode.verademo.model.Blab;
+import com.veracode.verademo.model.Blabber;
+import com.veracode.verademo.model.Comment;
+import com.veracode.verademo.utils.Constants;
+import com.veracode.verademo.utils.Utils;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -537,7 +537,7 @@ public class BlabController {
 			Class.forName("com.mysql.jdbc.Driver");
 			connect = DriverManager.getConnection(Constants.create().getJdbcConnectionString());
 
-			Class<?> cmdClass = Class.forName("com.reviewdemo.reviewdemo.commands." + ucfirst(command) + "Command");
+			Class<?> cmdClass = Class.forName("com.veracode.verademo.commands." + ucfirst(command) + "Command");
 			BlabberCommand cmdObj = (BlabberCommand) cmdClass.getDeclaredConstructor(Connection.class, String.class)
 					.newInstance(connect, username);
 			cmdObj.execute(blabberUsername);

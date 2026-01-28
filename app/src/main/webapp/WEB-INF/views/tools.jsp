@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=US-ASCII"
 	pageEncoding="US-ASCII"%>
-<%@ page import="com.reviewdemo.reviewdemo.utils.*"%>
+<%@ page import="com.veracode.verademo.utils.*"%>
 <%@ page import="java.util.*"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>

@@ -1,4 +1,4 @@
-package com.reviewdemo.reviewdemo.utils;
+package com.veracode.verademo.utils;
 
 import java.io.Serializable;
 import java.security.MessageDigest;

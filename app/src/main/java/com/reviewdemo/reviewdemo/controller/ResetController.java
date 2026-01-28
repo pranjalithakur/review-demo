@@ -1,4 +1,4 @@
-package com.reviewdemo.reviewdemo.controller;
+package com.veracode.verademo.controller;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -14,9 +14,9 @@ import java.util.Random;
 
 import javax.servlet.ServletContext;
 
-import com.reviewdemo.reviewdemo.utils.Constants;
-import com.reviewdemo.reviewdemo.utils.User;
-import com.reviewdemo.reviewdemo.utils.Utils;
+import com.veracode.verademo.utils.Constants;
+import com.veracode.verademo.utils.User;
+import com.veracode.verademo.utils.Utils;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;

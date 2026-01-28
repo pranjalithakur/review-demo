@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=US-ASCII"
 	pageEncoding="US-ASCII"%>
 <%@ page import="java.util.*"%>
-<%@ page import="com.reviewdemo.reviewdemo.model.Blabber"%>
+<%@ page import="com.veracode.verademo.model.Blabber"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>

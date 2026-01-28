@@ -1,4 +1,4 @@
-package com.reviewdemo.reviewdemo.model;
+package com.veracode.verademo.model;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
