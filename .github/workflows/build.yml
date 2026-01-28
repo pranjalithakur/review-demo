@@ -1,14 +1,10 @@
 name: SonarQube
 on:
   push:
-    branches:
-      - main
-      - vulnerable-app
+    branches: [ "**" ]
   pull_request:
     types: [opened, synchronize, reopened]
-    branches:
-      - main
-      - vulnerable-app
+    branches: [ "**" ]
 jobs:
   build:
     name: Build and analyze
