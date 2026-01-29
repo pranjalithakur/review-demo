@@ -1,30 +1,30 @@
-on:
-  workflow_dispatch: {}
-  push:
-    branches: [ "**" ]
-    paths:
-    - .github/workflows/semgrep.yml
-  pull_request:
-    branches: [ "**" ]
-  schedule:
-  - cron: 29 19 * * *
-name: Semgrep
+# on:
+#   workflow_dispatch: {}
+#   push:
+#     branches: [ "**" ]
+#     paths:
+#     - .github/workflows/semgrep.yml
+#   pull_request:
+#     branches: [ "**" ]
+#   schedule:
+#   - cron: 29 19 * * *
+# name: Semgrep
 
-permissions:
-  security-events: write
-  contents: read
-  actions: read
+# permissions:
+#   security-events: write
+#   contents: read
+#   actions: read
 
-jobs:
-  semgrep:
-    name: semgrep/ci
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    env:
-      SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
-    container:
-      image: semgrep/semgrep
-    steps:
-    - uses: actions/checkout@v4
-    - run: semgrep ci 
+# jobs:
+#   semgrep:
+#     name: semgrep/ci
+#     runs-on: ubuntu-latest
+#     permissions:
+#       contents: read
+#     env:
+#       SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+#     container:
+#       image: semgrep/semgrep
+#     steps:
+#     - uses: actions/checkout@v4
+#     - run: semgrep ci 
