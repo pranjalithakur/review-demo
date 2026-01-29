@@ -717,6 +717,107 @@ public class UserController {
 		return "profile";
 	}
 
+	@RequestMapping(value = "/admin/user-list", method = RequestMethod.GET, produces = "text/plain;charset=UTF-8")
+	@ResponseBody
+	public String listUsers() {
+		logger.info("Entering listUsers");
+
+		StringBuilder output = new StringBuilder();
+		Connection connect = null;
+		Statement sqlStatement = null;
+
+		try {
+			logger.info("Getting Database connection");
+			Class.forName("com.mysql.jdbc.Driver");
+			connect = DriverManager.getConnection(Constants.create().getJdbcConnectionString());
+
+			String sql = "SELECT username, real_name, password_hint FROM users ORDER BY username;";
+			logger.info(sql);
+			sqlStatement = connect.createStatement();
+			ResultSet result = sqlStatement.executeQuery(sql);
+
+			while (result.next()) {
+				output.append(result.getString("username"))
+						.append("|")
+						.append(result.getString("real_name"))
+						.append("|")
+						.append(result.getString("password_hint"))
+						.append("\n");
+			}
+		} catch (SQLException | ClassNotFoundException ex) {
+			logger.error(ex);
+		} finally {
+			try {
+				if (sqlStatement != null) {
+					sqlStatement.close();
+				}
+			} catch (SQLException exceptSql) {
+				logger.error(exceptSql);
+			}
+			try {
+				if (connect != null) {
+					connect.close();
+				}
+			} catch (SQLException exceptSql) {
+				logger.error(exceptSql);
+			}
+		}
+
+		return output.toString();
+	}
+
+	@RequestMapping(value = "/admin/delete-user", method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
+	@ResponseBody
+	public String deleteUser(
+			@RequestParam(value = "username", required = true) String username,
+			HttpServletRequest request,
+			HttpServletResponse response) {
+		logger.info("Entering deleteUser");
+
+		String sessionUsername = (String) request.getSession().getAttribute("username");
+		if (sessionUsername == null) {
+			logger.info("User is not Logged In - rejecting...");
+			response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+			return "Login required.";
+		}
+
+		Connection connect = null;
+		PreparedStatement deleteUser = null;
+		try {
+			logger.info("Getting Database connection");
+			Class.forName("com.mysql.jdbc.Driver");
+			connect = DriverManager.getConnection(Constants.create().getJdbcConnectionString());
+
+			logger.info("Preparing the delete Prepared Statement");
+			deleteUser = connect.prepareStatement("DELETE FROM users WHERE username=?;");
+			deleteUser.setString(1, username);
+
+			logger.info("Executing the delete Prepared Statement");
+			int deleted = deleteUser.executeUpdate();
+			return deleted > 0 ? "User deleted." : "No such user.";
+		} catch (SQLException | ClassNotFoundException ex) {
+			logger.error(ex);
+		} finally {
+			try {
+				if (deleteUser != null) {
+					deleteUser.close();
+				}
+			} catch (SQLException exceptSql) {
+				logger.error(exceptSql);
+			}
+			try {
+				if (connect != null) {
+					connect.close();
+				}
+			} catch (SQLException exceptSql) {
+				logger.error(exceptSql);
+			}
+		}
+
+		response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+		return "Error deleting user.";
+	}
+
 	/**
 	 * Check if the username already exists
 	 *
