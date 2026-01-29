@@ -33,11 +33,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.DatatypeConverter;
 
-import com.reviewdemo.reviewdemo.model.Blabber;
-import com.reviewdemo.reviewdemo.utils.Constants;
-import com.reviewdemo.reviewdemo.utils.User;
-import com.reviewdemo.reviewdemo.utils.UserFactory;
-import com.reviewdemo.reviewdemo.utils.Utils;
+import com.veracode.verademo.model.Blabber;
+import com.veracode.verademo.utils.Constants;
+import com.veracode.verademo.utils.User;
+import com.veracode.verademo.utils.UserFactory;
+import com.veracode.verademo.utils.Utils;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
