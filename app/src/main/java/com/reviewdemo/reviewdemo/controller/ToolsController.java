@@ -1,4 +1,4 @@
-package com.reviewdemo.reviewdemo.controller;
+package com.veracode.verademo.controller;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,7 +16,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @Scope("request")
@@ -41,24 +40,6 @@ public class ToolsController {
 		model.addAttribute("fortunes", fortune(fortuneFile));
 
 		return "tools";
-	}
-
-	@RequestMapping(value = "/tools/echo", method = RequestMethod.GET, produces = "text/plain;charset=UTF-8")
-	@ResponseBody
-	public String echo(
-			@RequestParam(value = "times", required = true) String times,
-			@RequestParam(value = "msg", required = false) String msg) {
-		if (msg == null) {
-			msg = "";
-		}
-
-		int count = Integer.parseInt(times);
-		StringBuilder output = new StringBuilder();
-		for (int i = 0; i < count; i++) {
-			output.append(msg);
-		}
-
-		return output.toString();
 	}
 
 	private String ping(String host) {
